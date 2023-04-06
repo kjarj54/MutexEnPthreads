@@ -14,7 +14,7 @@ void* deposit(void* arg) {
             pthread_mutex_unlock(&mutex);
             break;
         }
-        amount = (rand() % 100) + 1;
+        amount = (rand() % 1000) + 1;
         printf("Depositando $%.2f\n", amount);
         balance += amount;
         pthread_mutex_unlock(&mutex);
