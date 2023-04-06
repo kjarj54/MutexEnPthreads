@@ -15,7 +15,7 @@ void* deposit(void* arg) {
             break;
         }
         amount = (rand() % 100) + 1;
-        printf("Depositing $%.2f\n", amount);
+        printf("Depositando $%.2f\n", amount);
         balance += amount;
         pthread_mutex_unlock(&mutex);
         sleep(1);
@@ -29,7 +29,7 @@ int main() {
     int i = 0;
     pthread_t threads[10];
 
-    while (i < 10) {
+    while (i <+ 10) {
         pthread_create(&threads[i], NULL, deposit, NULL);
         // Incrementar la variable en cada ciclo
         i++;
@@ -38,7 +38,7 @@ int main() {
     // Reiniciar la variable para el siguiente bucle
     i = 0;
 
-    while (i < 10) {
+    while (i <= 10) {
         pthread_join(threads[i], NULL);
         // Incrementar la variable en cada ciclo
         i++;
