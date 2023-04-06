@@ -18,7 +18,7 @@ void* deposit(void* arg) {
         printf("Depositando $%.2f\n", amount);
         balance += amount;
         pthread_mutex_unlock(&mutex);
-        sleep(1);
+        sleep(100);
         // Incrementar la variable en cada ciclo
         i++;
     }
@@ -44,7 +44,7 @@ int main() {
         i++;
     }
 
-    printf("Final balance: $%.2f\n", balance);
+    printf("Balance Final de la cuenta: $%.2f\n", balance);
 
     return 0;
 }
