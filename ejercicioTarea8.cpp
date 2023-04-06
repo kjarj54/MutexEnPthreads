@@ -12,11 +12,11 @@ void* deposit(void* arg) {
     srand (time(NULL));
     while (i < 5) {
         pthread_mutex_lock(&mutex);
-        if (balance > 1000) {
+        if (balance > 200) {
             pthread_mutex_unlock(&mutex);
             break;
         }
-        amount = (rand() % 10+1) + 1;
+        amount = (rand() % 20+1) + 1;
         printf("Depositando $%.2f\n", amount);
         balance += amount;
         pthread_mutex_unlock(&mutex);
