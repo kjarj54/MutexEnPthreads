@@ -2,19 +2,21 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <time.h>  
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 float balance = 0;
 
 void* deposit(void* arg) {
     int i = 0;
     float amount;
+    srand (time(NULL));
     while (i < 5) {
         pthread_mutex_lock(&mutex);
         if (balance > 100) {
             pthread_mutex_unlock(&mutex);
             break;
         }
-        amount = (rand() % 10) + 1;
+        amount = (rand() % 10+1) + 1;
         printf("Depositando $%.2f\n", amount);
         balance += amount;
         pthread_mutex_unlock(&mutex);
