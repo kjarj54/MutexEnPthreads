@@ -12,7 +12,7 @@ void* deposit(void* arg) {
     srand (time(NULL));
     while (i < 5) {
         pthread_mutex_lock(&mutex);
-        if (balance > 100) {
+        if (balance > 1000) {
             pthread_mutex_unlock(&mutex);
             break;
         }
@@ -30,7 +30,7 @@ void* deposit(void* arg) {
 int main() {
     int i = 0;
     pthread_t threads[10];
-
+	srand (time(NULL));
     while (i <+ 10) {
         pthread_create(&threads[i], NULL, deposit, NULL);
         // Incrementar la variable en cada ciclo
